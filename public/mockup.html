@@ -33,7 +33,7 @@
         padding: 20px;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: flex-start;
       }
       #counter-adder {
         position: fixed;
@@ -49,6 +49,37 @@
       .round {
         border-radius: 10px;
       }
+      @media (min-width:960px){
+          body{
+              margin:0px;
+              height:100vh;
+              max-height:100vh;
+          }
+          #app-container{
+              flex-direction: row;
+              padding:0px;
+          }
+          .search-filters {
+              border-radius: 0px;
+              width:20%;
+              height:100%;
+          }
+          .counter-list {
+            border-radius:0px;
+            width:70%;
+            height:100%;
+            box-sizing: border-box;
+            flex-wrap:wrap;
+          }
+          #counter-adder {
+              display:none;
+          }
+          .counter {
+              max-width:200px;
+              height:100px;
+              margin-bottom:10%;
+          }
+      }
     </style>
   </head>
   <body>
@@ -58,6 +89,10 @@
         <div id="filters"></div>
       </div>
       <div class="counter-list round">
+        <div class="counter"></div>
+        <div class="counter"></div>
+        <div class="counter"></div>
+        <div class="counter"></div>
         <div class="counter"></div>
         <div class="counter"></div>
         <div class="counter"></div>
