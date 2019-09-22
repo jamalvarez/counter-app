@@ -5,22 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Counter-app</title>
+    <style>
+      body {
+        height: 100vh;
+        max-height: 90vh;
+      }
+      #app-container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        box-sizing: border-box;
+      }
+      .search-filters {
+        height: 50px;
+        width: 80%;
+        background-color: blue;
+      }
+      .counter-list {
+        width: 80%;
+        flex: 1;
+        background-color: red;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+      #counter-adder {
+        position: fixed;
+        height: 50px;
+        width: 100%;
+        background-color: green;
+        bottom: 0px;
+      }
+      .counter {
+        height: 50px;
+        background-color: darkred;
+      }
+      .round {
+        border-radius: 10px;
+      }
+    </style>
   </head>
   <body>
     <div id="app-container">
-      <div class="search-filters">
+      <div class="search-filters round">
         <div id="searchbar"></div>
         <div id="filters"></div>
       </div>
-      <div class="counter-list">
+      <div class="counter-list round">
         <div class="counter"></div>
         <div class="counter"></div>
         <div class="counter"></div>
         <div class="counter"></div>
       </div>
-      <div id="counter-adder">
-          
-      </div>
+      <div id="counter-adder"></div>
     </div>
   </body>
 </html>
