@@ -1,13 +1,107 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  max-height: 90vh;
 }
+#app-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  box-sizing: border-box;
+}
+#search-filters {
+  height: 50px;
+  width: 80%;
+  background-color: blue;
+  position:relative;
+}
+#searchbar {
+    height:100%;
+    width:calc(100% - 40px);
+    background-color:yellow;
+    border-radius: 10px 0 0 10px;
+}
+#filters {
+    position:absolute;
+    height:100%;
+    width:40px;
+    right:0px;
+    top:0px;
+    background-color:orange;
+    border-radius: 0 10px 10px 0;
+}
+#counter-list {
+  width: 80%;
+  flex: 1;
+  background-color: red;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+#counter-adder {
+  position: fixed;
+  height: 50px;
+  width: 100%;
+  background-color: green;
+  bottom: 0px;
+}
+.counter {
+  height: 50px;
+  background-color: darkred;
+}
+.round {
+  border-radius: 10px;
+}
+@media (min-width:960px){
+    body{
+        margin:0px;
+        height:100vh;
+        max-height:100vh;
+    }
+    #app-container{
+        flex-direction: row;
+        padding:0px;
+    }
+    #search-filters {
+        border-radius: 0px;
+        width:20%;
+        height:100%;  
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #searchbar{
+      height: 50px;
+      border-radius:10px;
+      width: 80%;
+      margin-bottom: 20px;
+    }
+    #filters{
+      border-radius:10px;
+      height: 50px;
+      position:static;
+      width: 80%;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+    }
+    #counter-list {
+      border-radius:0px;
+      width:70%;
+      height:100%;
+      box-sizing: border-box;
+      flex-wrap:wrap;
+    }
+    #counter-adder {
+        display:none;
+    }
+    .counter {
+        max-width:200px;
+        height:100px;
+        margin-bottom:10%;
+    }
 }
