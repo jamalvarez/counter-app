@@ -1,16 +1,10 @@
 import React from "react";
-
-function Counterlist() {
+import Counter from './counter.js';
+import Countercreator from './insideman';
+function Counterlist({counterarray}) {
   return (
     <div id="counter-list">
-      <div className="counter"></div>
-      <div className="counter"></div>
-      <div className="counter"></div>
-      <div className="counter"></div>
-      <div className="counter"></div>
-      <div className="counter"></div>
-      <div className="counter"></div>
-      <div className="counter"></div>
+    {counterarray.map(Counter).concat(<Countercreator/>)}
     </div>
   );
 }

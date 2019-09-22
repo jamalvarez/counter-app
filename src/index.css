@@ -57,6 +57,9 @@ body {
 .round {
   border-radius: 10px;
 }
+#insideman {
+  display:none;
+}
 @media (min-width:960px){
     body{
         margin:0px;
@@ -103,5 +106,8 @@ body {
         max-width:200px;
         height:100px;
         margin-bottom:10%;
+    }
+    #insideman {
+      display:block;
     }
 }
