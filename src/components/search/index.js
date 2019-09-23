@@ -1,9 +1,11 @@
 import React from 'react';
 
 
-function Search(){
+function Search({value, onChange}){
     return(
-        <div id="searchbar"></div>
+        <div id="searchbar">
+        <input type="text" value={value} onChange={(e) => {onChange(e.target.value)}}/>
+        </div>
     )
 }
 
