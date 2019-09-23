@@ -1,8 +1,8 @@
 import React from 'react';
 import {removeCounter} from '../../requests';
-function Counter({id, title, count}){
+function Counter({id, title, count, onRemove}){
     return(<div id={id} className="counter">
-    <div class="remove" onClick={(id) => removeCounter(id)}>
+    <div class="remove" onClick={() => removeCounter(id, onRemove)}>
         x
     </div>
     {`${title} has a value of ${count}`}

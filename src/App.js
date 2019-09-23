@@ -5,34 +5,25 @@ import Counterlist from "./components/counterlist";
 import CounterAdder from "./components/counteradder";
 import Popup from './components/popup';
 import counterReducer from "./appreducer";
+import {fetchInitialData} from './requests/index';
 
 function App() {
   const [counterarray, dispatch] = useReducer(counterReducer, []);
   const [popupVisible, showPopup] = useState(false);
   useEffect(() => {
-    async function fetchData() {
-      const response = await fetch("http://localhost:5000/api/v1/counters", {
-        method: "get"
-      });
-      const initialData = await response.json();
-      dispatch({ type: "initial", data: initialData });
-    }
-    try {
-      fetchData();
-    } catch (e) {
-      console.log("couldnt do shit for now");
-    }
+    fetchInitialData((data) => dispatch({type:'initial', data}));
   }, []);
+
   return (
     <React.Fragment>
       <div id="search-filters" className="round">
         <Search />
         <Filters />
       </div>
-      <Counterlist counterarray={counterarray} raisepopup={showPopup}/>
+      <Counterlist counterarray={counterarray} raisepopup={showPopup} onRemove={(data) => {dispatch({type:'kek', data})}}/>
       <CounterAdder />
       {popupVisible && <Popup onSuccess={(data) => {dispatch({type:'kek', data}); showPopup(false);}} onFailure={() => showPopup(false)}/>}
-    </React.Fragment>
+      </React.Fragment>
   );
 }
 
