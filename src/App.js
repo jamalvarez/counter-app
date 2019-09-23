@@ -31,7 +31,7 @@ function App() {
       </div>
       <Counterlist counterarray={counterarray} raisepopup={showPopup}/>
       <CounterAdder />
-      {popupVisible && <Popup onSuccess={(data) => {console.log({type:'kek', data});showPopup(false);}} onFailure={() => showPopup(false)}/>}
+      {popupVisible && <Popup onSuccess={(data) => {dispatch({type:'kek', data});showPopup(false);}} onFailure={() => showPopup(false)}/>}
     </React.Fragment>
   );
 }

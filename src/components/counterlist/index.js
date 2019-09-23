@@ -4,7 +4,7 @@ import Countercreator from './insideman';
 function Counterlist({counterarray, raisepopup}) {
   return (
     <div id="counter-list">
-    {counterarray.map(Counter).concat(<Countercreator onClick={raisepopup}/>)}
+    {counterarray.map(x => ({...x, key:x.id})).map(Counter).concat(<Countercreator onClick={raisepopup}/>)}
     </div>
   );
 }

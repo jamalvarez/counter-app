@@ -11,7 +11,6 @@ function Popup({onSuccess, onFailure}) {
       body: JSON.stringify({ title })
     });
     const data = await response.json();
-    console.log(data);
     onSuccess(data);
   };
   return (

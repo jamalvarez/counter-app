@@ -41,7 +41,8 @@ app.get("/api/v1/counters", function(req, res) {
 // => ]
 app.post("/api/v1/counter", function(req, res) {
   console.log(req.body)
-  res.json(counters.create(req.body.title));
+  counters.create(req.body.title);
+  res.json(counters.all());
 })
 
 // [json] DELETE {id: "asdf"} /api/v1/counter
@@ -50,7 +51,8 @@ app.post("/api/v1/counter", function(req, res) {
 // =>   {id: "qwer", title: "bob",   count: 0}
 // => ]
 app.delete("/api/v1/counter", function(req, res) {
-  res.json(counters.delete(req.body.id));
+  counters.delete(req.body.id);
+  res.json(counters.all());
 });
 
 // [json] POST {id: "qwer"} /api/v1/counter/inc
@@ -59,7 +61,8 @@ app.delete("/api/v1/counter", function(req, res) {
 // =>   {id: "qwer", title: "bob",   count: 1}
 // => ]
 app.post("/api/v1/counter/inc", function(req, res) {
-  res.json(counters.inc(req.body.id));
+  counters.inc(req.body.id);
+  res.json(counters.all());
 });
 
 // [json] POST {id: "zxcv"} /api/v1/counter/dec
@@ -68,7 +71,8 @@ app.post("/api/v1/counter/inc", function(req, res) {
 // =>   {id: "qwer", title: "bob",   count: 1}
 // => ]
 app.post("/api/v1/counter/dec", function(req, res) {
-  res.json(counters.dec(req.body.id));
+  counters.dec(req.body.id);
+  res.json(counters.all());
 });
 
 // app.get("*", sendFile("index.html"));
