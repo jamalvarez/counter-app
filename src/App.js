@@ -14,13 +14,15 @@ function App() {
     fetchInitialData((data) => dispatch({type:'initial', data}));
   }, []);
 
+  const updateCounterArray = (data) => {dispatch({type:'kek', data})};
+
   return (
     <React.Fragment>
       <div id="search-filters" className="round">
         <Search />
         <Filters />
       </div>
-      <Counterlist counterarray={counterarray} raisepopup={showPopup} onRemove={(data) => {dispatch({type:'kek', data})}}/>
+      <Counterlist counterarray={counterarray} raisepopup={showPopup} onAction={updateCounterArray}/>
       <CounterAdder />
       {popupVisible && <Popup onSuccess={(data) => {dispatch({type:'kek', data}); showPopup(false);}} onFailure={() => showPopup(false)}/>}
       </React.Fragment>

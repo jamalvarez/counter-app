@@ -15,7 +15,7 @@ export const removeCounter = async (id, onSuccess, onFailure = (e) => {console.l
   }
 };
 
-export const fetchInitialData = async (onSuccess, onFailure) => {
+export const fetchInitialData = async (onSuccess, onFailure = (e) => {console.log(e)}) => {
   try {
     const response = await fetch("http://localhost:5000/api/v1/counters", {
       method: "get",
@@ -26,6 +26,54 @@ export const fetchInitialData = async (onSuccess, onFailure) => {
     const initialData = await response.json();
     onSuccess(initialData);
   } catch (e) {
-    console.log("couldnt do shit for now");
+    onFailure(e);
+  }
+}
+
+export const saveCounter = async (title, onSuccess, onFailure = (e) => {console.log(e)}) => {
+  try{
+  const response = await fetch("http://localhost:5000/api/v1/counter", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ title })
+  });
+  const initialData = await response.json();
+  onSuccess(initialData);
+} catch (e) {
+  onFailure(e);
+}
+};
+
+export const increaseCounter = async (id, onSuccess, onFailure = (e) => {console.log(e)}) => {
+  try {
+    const response = await fetch("http://localhost:5000/api/v1/counter/inc", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ id })
+    });
+    const initialData = await response.json();
+    onSuccess(initialData);
+  } catch (e) {
+    onFailure(e);
+  }
+}
+
+export const decreaseCounter = async (id, onSuccess, onFailure = (e) => {console.log(e)}) => {
+  try {
+    const response = await fetch("http://localhost:5000/api/v1/counter/dec", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ id })
+    });
+    const initialData = await response.json();
+    onSuccess(initialData);
+  } catch (e) {
+    onFailure(e);
   }
 }
