@@ -23,8 +23,8 @@ function App() {
         <Filters />
       </div>
       <Counterlist counterarray={counterarray} raisepopup={showPopup} onAction={updateCounterArray}/>
-      <CounterAdder />
-      {popupVisible && <Popup onSuccess={(data) => {dispatch({type:'kek', data}); showPopup(false);}} onFailure={() => showPopup(false)}/>}
+      <CounterAdder raisepopup={showPopup}/>
+      {popupVisible && <Popup showPopup={showPopup} onSuccess={(data) => {dispatch({type:'kek', data}); showPopup(false);}} onFailure={() => showPopup(false)}/>}
       </React.Fragment>
   );
 }

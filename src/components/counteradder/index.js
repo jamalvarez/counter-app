@@ -1,9 +1,9 @@
 import React from 'react';
 
 
-function Counteradder(){
+function Counteradder({raisepopup}){
     return(
-        <div id="counter-adder"></div>
+        <div id="counter-adder" onClick={raisepopup}></div>
     )
 }
 

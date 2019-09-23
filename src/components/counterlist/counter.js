@@ -7,7 +7,7 @@ function Counter({id, title, count, onAction}){
     </div>
     {`${title}: ${count}`}
     <div className="increase" onClick={() => increaseCounter(id, onAction)}></div>
-    <div className="decrease" onClick={() => decreaseCounter(id, onAction)}></div>
+    <div className="decrease" onClick={() => count < 1 ? null : decreaseCounter(id, onAction)}></div>
     </div>)
 }
 

@@ -1,18 +1,16 @@
-import React, { useState } from "react";
-
-function Popup({onSuccess, onFailure}) {
+import React, { useState, useEffect } from "react";
+import {saveCounter} from "./../../requests"
+function Popup({onSuccess, onFailure, showPopup}) {
   const [title, setTitle] = useState("");
-  const saveCounter = async () => {
-    const response = await fetch("http://localhost:5000/api/v1/counter", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ title })
-    });
-    const data = await response.json();
-    onSuccess(data);
-  };
+  useEffect(() =>{
+    const hidePopup = () =>{
+      showPopup(false);
+    }
+    document.querySelector('.backdrop').addEventListener('click', hidePopup);
+    return () => {
+      document.querySelector('.backdrop').removeEventListener('click', hidePopup);
+    }
+  })
   return (
     <React.Fragment>
     <div className="backdrop">
@@ -27,7 +25,7 @@ function Popup({onSuccess, onFailure}) {
           value={title}
           type="text"
         />
-        <button onClick={saveCounter}>Save bish</button>
+        <button onClick={() => saveCounter(title, onSuccess, onFailure)}>Save bish</button>
       </div>
       </React.Fragment>
   );

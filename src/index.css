@@ -53,6 +53,21 @@ body {
 .counter {
   height: 50px;
   background-color: darkred;
+  position: relative;
+}
+.increase, .decrease{
+  height: 100%;
+  width: 50px;
+  position:absolute;
+  top:0px;
+}
+.increase {
+  right: 0px;
+  background-color:black;
+}
+.decrease {
+  right: 50px;
+  background-color:white;
 }
 .round {
   border-radius: 10px;
@@ -90,8 +105,6 @@ body {
   align-items: center;
   opacity:1;
   position:fixed;
-  top: 40vh;
-  left: 40vw;
 }
 @media (min-width:960px){
     body{
@@ -146,6 +159,10 @@ body {
     }
     #insideman {
       display:flex;
+    }
+    #creation-modal{
+      top: 40vh;
+      left: 40vw;
     }
     .increase, .decrease{
       height: 50%;
