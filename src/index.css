@@ -113,6 +113,32 @@ body {
   opacity:1;
   position:fixed;
 }
+#filters {
+  position: static;
+}
+
+/* Filters shenanigans*/
+#filters input {
+  position: absolute;
+  cursor: pointer;
+  outline: none;
+  
+}
+
+#filters input::-webkit-slider-runnable-track {
+  background: none;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  position: relative;
+  height: 15px;
+  width: 15px;
+  background: #fff;
+  border: 1px solid #003D7C;
+  border-radius: 25px;
+  z-index: 1;
+}
+/*end of filter shenanigans*/
 @media (min-width:960px){
     body{
         margin:0px;
@@ -176,6 +202,7 @@ body {
       width: 50px;
       position:absolute;
       right: 0px;
+      top:initial;
     }
     .increase {
       top:0px;
