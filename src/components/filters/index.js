@@ -1,20 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 
-function Filters() {
-  const [maxFilter, setMax] = useState({ currentValue: "100", topValue: "100" });
-  const [minFilter, setMin] = useState({ currentValue: "1", bottomValue: "1" });
+function Filters({
+  setMax,
+  setMin,
+  minFilterValue,
+  maxFilterValue,
+  topValue,
+  bottomValue,
+  useValueFilter,
+  toggleValueFilter
+}) {
   return (
     <div id="filters">
       <input
         class="min"
         name="range_1"
         type="range"
-        min={minFilter.bottomValue}
-        max={maxFilter.topValue}
-        value={minFilter.currentValue}
+        disabled={topValue === ""}
+        min={"0"}
+        max={topValue}
+        value={minFilterValue}
         onChange={e => {
-          if (Number(e.target.value) < Number(maxFilter.currentValue)) {
-            setMin({ currentValue: e.target.value, bottomValue: "1" });
+          if (Number(e.target.value) < Number(maxFilterValue)) {
+            setMin(e.target.value);
           }
         }}
       />
@@ -22,13 +30,22 @@ function Filters() {
         class="max"
         name="range_1"
         type="range"
-        min={minFilter.bottomValue}
-        max={maxFilter.topValue}
-        value={maxFilter.currentValue}
+        disabled={topValue === ""}
+        min={"0"}
+        max={topValue}
+        value={maxFilterValue}
         onInput={e => {
-          if (Number(e.target.value) > Number(minFilter.currentValue)) {
-            setMax({ currentValue: e.target.value, topValue: "100" });
+          if (Number(e.target.value) > Number(minFilterValue)) {
+            setMax(e.target.value);
           }
+        }}
+      />
+      <input
+        disabled={bottomValue === ""}
+        type="checkbox"
+        checked={useValueFilter}
+        onChange={e => {
+          toggleValueFilter(e.target.checked);
         }}
       />
     </div>

@@ -114,18 +114,22 @@ body {
   position:fixed;
 }
 #filters {
-  position: static;
+  position: absolute;
 }
 
 /* Filters shenanigans*/
-#filters input {
+input[type='checkbox'] {
+  position: absolute;
+  right: 0px;
+}
+input[type='range'] {
   position: absolute;
   cursor: pointer;
   outline: none;
   
 }
 
-#filters input::-webkit-slider-runnable-track {
+input[type='range']::-webkit-slider-runnable-track {
   background: none;
 }
 
@@ -167,7 +171,7 @@ input[type='range']::-webkit-slider-thumb {
     #filters{
       border-radius:10px;
       height: 50px;
-      position:static;
+      position:relative;
       width: 80%;
 
     }
