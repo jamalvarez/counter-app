@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {saveCounter} from "./../../requests"
+import {saveCounter} from "../../requests"
 function Popup({onSuccess, onFailure, showPopup}) {
   const [title, setTitle] = useState("");
   const hidePopup = () => {
@@ -25,7 +25,7 @@ function Popup({onSuccess, onFailure, showPopup}) {
           value={title}
           type="text"
         />
-        <button onClick={() => saveCounter(title, onSuccess, onFailure)}>Save bish</button>
+        <button onClick={() => saveCounter(title, onSuccess, onFailure)}>Save Counter</button>
         <button onClick={hidePopup}>Cancel</button>
       </div>
       </React.Fragment>

@@ -1,8 +1,8 @@
 import React from 'react';
 
 function insideman({onClick}){
-    return(<div id="insideman" className="round counter">
-        <div onClick={onClick} className="cross">
+    return(<div id="insideman" onClick={onClick} className="round counter">
+        <div className="cross">
             +
         </div>
     </div>)

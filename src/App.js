@@ -3,12 +3,14 @@ import Search from "./components/search";
 import Filters from "./components/filters";
 import Counterlist from "./components/counterlist";
 import CounterAdder from "./components/counteradder";
-import Popup from "./components/popup";
+import Popup from "./components/popups/creationmodal";
+import Errormodal from "./components/popups/errormodal";
 import { fetchInitialData } from "./requests/index";
 
 function App() {
   const [counterarray, updateCounterArray] = useState([]);
   const [popupVisible, showPopup] = useState(false);
+  const [error, displayError] = useState(false);
   useEffect(() => {
     fetchInitialData(updateCounterArray);
   }, []);
@@ -55,6 +57,7 @@ function App() {
           .filter(valueFilterFunc)}
         raisepopup={showPopup}
         onAction={updateCounterArray}
+        onFailure={() => displayError(true)}
       />
       <CounterAdder raisepopup={showPopup} />
       {popupVisible && (
@@ -64,9 +67,12 @@ function App() {
             updateCounterArray(data);
             showPopup(false);
           }}
-          onFailure={() => showPopup(false)}
+          onFailure={() => {showPopup(false); displayError(true)}}
         />
       )}
+      {
+       error && <Errormodal onAccept={() => displayError(false)}/>
+      }
     </React.Fragment>
   );
 }

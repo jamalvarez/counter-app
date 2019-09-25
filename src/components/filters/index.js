@@ -16,7 +16,7 @@ function Filters({
     <div id="filters">
     <span id="minFilterValue">{minFilterValue}</span>
       <input
-        class="min"
+        className="min"
         name="range_1"
         type="range"
         disabled={disabled}
@@ -30,7 +30,7 @@ function Filters({
         }}
       />
       <input
-        class="max"
+        className="max"
         name="range_1"
         type="range"
         disabled={disabled}

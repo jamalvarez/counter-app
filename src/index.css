@@ -10,9 +10,10 @@
 
 body {
   height: 100vh;
-  max-height: 90vh;
+  margin:0px;
 }
 #app-container {
+  background-color: var(--light-red);
   height: 100%;
   width: 100%;
   display: flex;
@@ -79,46 +80,70 @@ body {
 #counter-list {
   width: 80%;
   flex: 1;
-  background-color: var(--light-red);
-  padding: 20px;
+  padding: 0px 20px 20px 20px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: flex-start;
+  overflow-y: scroll;
 }
 #counter-adder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:seashell;
   position: fixed;
   height: 50px;
   width: 100%;
-  background-color: green;
+  background-color: var(--elements);
   bottom: 0px;
 }
 .counter {
+  width: 100%;
   display: flex;
   align-items: center;
   height: 50px;
   background-color: var(--border-red);
   position: relative;
-  font-size: xx-large;
   overflow: hidden;
+  margin-bottom:10px;
+  font-size: 40px;
+}
+.title {
+    margin-left:10px;
+    margin-right: 10px;
+    width: 70px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: medium;
 }
 .increase,
 .decrease {
+  font-family: cursive;
   height: 100%;
   width: 50px;
   position: absolute;
   top: 0px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color:var(--element-yellow);
 }
 .increase {
   right: 0px;
-  background-color: black;
 }
 .decrease {
   right: 50px;
-  background-color: white;
 }
 .remove {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: cursive;
+  height: 100%;
   width: 50px;
   text-align: center;
+  background-color: var(--element-yellow);
 }
 .round {
   border-radius: 10px;
@@ -127,12 +152,18 @@ body {
   display: none;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .cross {
-  width: 50%;
-  height: 50%;
+  font-size: 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
   background-color: maroon;
   cursor: pointer;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 .backdrop {
   opacity: 0.7;
@@ -146,7 +177,7 @@ body {
   justify-content: center;
   align-items: center;
 }
-#creation-modal {
+#creation-modal, #error-modal {
   height: 200px;
   width: 400px;
   background-color: silver;
@@ -191,6 +222,7 @@ input[type="range"]::-webkit-slider-thumb {
     max-height: 100vh;
   }
   #app-container {
+    background-color:white;
     flex-direction: row;
     padding: 0px;
   }
@@ -229,13 +261,13 @@ input[type="range"]::-webkit-slider-thumb {
     width: 80%;
   }
   #counter-list {
+    background-color: var(--light-red);
     border-radius: 0px;
     width: 70%;
     height: 100%;
     box-sizing: border-box;
-    flex-wrap: wrap;
-    flex-direction: row;
     overflow: scroll;
+    padding-top:20px;
   }
   #counter-adder {
     display: none;
@@ -243,7 +275,8 @@ input[type="range"]::-webkit-slider-thumb {
   .counter {
     width: 300px;
     height: 100px;
-    margin-bottom: 10%;
+    margin-right: 3%;
+    margin-bottom: 3%;
     position: relative;
     display: flex;
     justify-content: center;
@@ -256,13 +289,14 @@ input[type="range"]::-webkit-slider-thumb {
   #insideman {
     display: flex;
   }
-  #creation-modal {
+  #creation-modal, #error-modal {
     top: 40vh;
     left: 40vw;
   }
   .increase,
   .decrease {
-    height: 50%;
+    cursor: pointer;
+    height: 45%;
     width: 50px;
     position: absolute;
     right: 0px;
@@ -270,19 +304,18 @@ input[type="range"]::-webkit-slider-thumb {
   }
   .increase {
     top: 0px;
-    background-color: black;
   }
   .decrease {
     bottom: 0px;
-    background-color: white;
   }
   .remove {
+    cursor: pointer;
     position: absolute;
     top: 0px;
     left: 0px;
-    background-color: white;
     height: 35px;
     width: 35px;
+    border-radius: 0px 50% 50% 0px;
   }
   input[type="range"] {
     width: 80%;
