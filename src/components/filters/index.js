@@ -14,6 +14,7 @@ function Filters({
       <React.Fragment>
       <div id="filter-button" className={`${useValueFilter ? 'active' : 'inactive'}`} onClick={() => toggleValueFilter(!useValueFilter)}/>
     <div id="filters">
+    <span id="minFilterValue">{minFilterValue}</span>
       <input
         class="min"
         name="range_1"
@@ -42,6 +43,7 @@ function Filters({
           }
         }}
       />
+      <span id="maxFilterValue">{maxFilterValue}</span>
     </div>
     </React.Fragment>
   );

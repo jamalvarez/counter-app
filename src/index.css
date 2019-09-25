@@ -1,7 +1,7 @@
 :root {
-  --elements: #4d1410;
+  --elements: #8d2e27;
   --highlights: #ff887f;
-  --dark-red: #a62d23;
+  --light-red: #a62d23c4;
   --border-red: #a62d23;
 
   --element-yellow: #c34500;
@@ -29,6 +29,9 @@ body {
   background-color: var(--elements);
   position: relative;
   margin-bottom: 60px;
+  -webkit-box-shadow: 2px 2px 5px 0.5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 2px 5px 0.5px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 2px 5px 0.5px rgba(0, 0, 0, 0.75);
 }
 #searchbar {
   height: 100%;
@@ -76,7 +79,7 @@ body {
 #counter-list {
   width: 80%;
   flex: 1;
-  background-color: var(--dark-red);
+  background-color: var(--light-red);
   padding: 20px;
   display: flex;
   flex-direction: column;
