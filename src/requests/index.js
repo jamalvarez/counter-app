@@ -1,7 +1,7 @@
 export const removeCounter = async (id, onSuccess, onFailure = (e) => {console.log(e)}) => {
 
   try {
-    const response = await fetch("http://localhost:5000/api/v1/counter", {
+    const response = await fetch(window.location.href.replace(':3000',':5000') + "api/v1/counter", {
       method: "delete",
       headers: {
         "Content-Type": "application/json"
@@ -17,7 +17,7 @@ export const removeCounter = async (id, onSuccess, onFailure = (e) => {console.l
 
 export const fetchInitialData = async (onSuccess, onFailure = (e) => {console.log(e)}) => {
   try {
-    const response = await fetch("http://localhost:5000/api/v1/counters", {
+    const response = await fetch(window.location.href.replace(':3000',':5000') + "api/v1/counters", {
       method: "get",
       headers: {
         "Content-Type": "application/json"
@@ -32,7 +32,7 @@ export const fetchInitialData = async (onSuccess, onFailure = (e) => {console.lo
 
 export const saveCounter = async (title, onSuccess, onFailure = (e) => {console.log(e)}) => {
   try{
-  const response = await fetch("http://localhost:5000/api/v1/counter", {
+  const response = await fetch(window.location.href.replace(':3000',':5000') + "api/v1/counter", {
     method: "post",
     headers: {
       "Content-Type": "application/json"
@@ -48,7 +48,7 @@ export const saveCounter = async (title, onSuccess, onFailure = (e) => {console.
 
 export const increaseCounter = async (id, onSuccess, onFailure = (e) => {console.log(e)}) => {
   try {
-    const response = await fetch("http://localhost:5000/api/v1/counter/inc", {
+    const response = await fetch(window.location.href.replace(':3000',':5000') + "api/v1/counter/inc", {
       method: "post",
       headers: {
         "Content-Type": "application/json"
@@ -64,7 +64,7 @@ export const increaseCounter = async (id, onSuccess, onFailure = (e) => {console
 
 export const decreaseCounter = async (id, onSuccess, onFailure = (e) => {console.log(e)}) => {
   try {
-    const response = await fetch("http://localhost:5000/api/v1/counter/dec", {
+    const response = await fetch(window.location.href.replace(':3000',':5000') + "api/v1/counter/dec", {
       method: "post",
       headers: {
         "Content-Type": "application/json"

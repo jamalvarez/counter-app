@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import {saveCounter} from "./../../requests"
 function Popup({onSuccess, onFailure, showPopup}) {
   const [title, setTitle] = useState("");
+  const hidePopup = () => {
+    showPopup(false);
+  }
   useEffect(() =>{
-    const hidePopup = () =>{
-      showPopup(false);
-    }
     document.querySelector('.backdrop').addEventListener('click', hidePopup);
     return () => {
       document.querySelector('.backdrop').removeEventListener('click', hidePopup);
@@ -26,6 +26,7 @@ function Popup({onSuccess, onFailure, showPopup}) {
           type="text"
         />
         <button onClick={() => saveCounter(title, onSuccess, onFailure)}>Save bish</button>
+        <button onClick={hidePopup}>Cancel</button>
       </div>
       </React.Fragment>
   );

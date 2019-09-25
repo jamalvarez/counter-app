@@ -38,7 +38,7 @@ function App() {
         <Search value={textFilter} onChange={setTextFilter}/>
         <Filters {...{setMax,setMin, minFilterValue, maxFilterValue, topValue, useValueFilter, toggleValueFilter, disabled:topValue === '' ||!useValueFilter} }/>
       </div>
-      <Counterlist counterarray={counterarray.filter(textFilterFunc).filter(valueFilterFunc)} raisepopup={showPopup} onAction={updateCounterArray}/>
+      <Counterlist counterarray={counterarray} raisepopup={showPopup} onAction={updateCounterArray}/>
       <CounterAdder raisepopup={showPopup}/>
       {popupVisible && <Popup showPopup={showPopup} onSuccess={(data) => {dispatch({type:'kek', data}); showPopup(false);}} onFailure={() => showPopup(false)}/>}
       </React.Fragment>

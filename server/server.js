@@ -11,7 +11,6 @@ app.use(morgan("combined"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
-
 //app.use(compression());
 
 // function sendFile(name) {
@@ -78,7 +77,7 @@ app.post("/api/v1/counter/dec", function(req, res) {
 // app.get("*", sendFile("index.html"));
 // app.head("*", sendFile("index.html"));
 
-app.listen(PORT, console.log.bind(null, "PORT: " + PORT));
+app.listen(PORT, '0.0.0.0', () => console.log.bind(null, "PORT: " + PORT));
 
 // Easter egg
 // fetch('/api/v1/counters', {method: 'get'})

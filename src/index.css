@@ -48,6 +48,8 @@ body {
   width:100%;
   background-color:orange;
   border-radius: 0 0px 10px 10px;
+  display:flex;
+  align-items: center;
 }
 #counter-list {
   width: 80%;
@@ -130,7 +132,8 @@ input[type='range'] {
   position: absolute;
   cursor: pointer;
   outline: none;
-  
+  height:50px;
+  width:100%;
 }
 
 input[type='range']::-webkit-slider-runnable-track {
@@ -230,5 +233,8 @@ input[type='range']::-webkit-slider-thumb {
       background-color:white;
       height: 20px;
       width: 20px;
+    }
+    input[type="range"] {
+      width: 80%;
     }
 }
