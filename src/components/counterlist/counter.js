@@ -1,7 +1,7 @@
 import React from 'react';
 import {removeCounter, decreaseCounter, increaseCounter} from '../../requests';
 function Counter({id, title, count, onAction}){
-    return(<div id={id} className="counter">
+    return(<div id={id} className="counter round">
     <div className="remove" onClick={() => removeCounter(id, onAction)}>
         x
     </div>

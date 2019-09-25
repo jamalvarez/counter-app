@@ -1,3 +1,10 @@
+:root {
+  --elements: #4d1410;
+  --highlights: #ff887f;
+  --dark-red: #a62d23;
+  --border-red: #a62d23;
+}
+
 body {
   height: 100vh;
   max-height: 90vh;
@@ -16,15 +23,15 @@ body {
 #search-filters {
   height: 50px;
   width: 80%;
-  background-color: blue;
-  position:relative;
+  background-color: var(--elements);
+  position: relative;
   margin-bottom: 60px;
 }
 #searchbar {
-    height:100%;
-    width:calc(100% - 40px);
-    background-color:yellow;
-    border-radius: 10px 0 0 10px;
+  height: 100%;
+  width: calc(100% - 40px);
+  background-color: yellow;
+  border-radius: 10px 0 0 10px;
 }
 #searchbar input {
   max-height: 100%;
@@ -34,34 +41,34 @@ body {
   width: 100%;
 }
 #filter-button {
-    position:absolute;
-    height:100%;
-    width:40px;
-    right:0px;
-    top:0px;
-    background-color:orange;
-    border-radius: 0 10px 10px 0;
+  position: absolute;
+  height: 100%;
+  width: 40px;
+  right: 0px;
+  top: 0px;
+  background-color: orange;
+  border-radius: 0 10px 10px 0;
 }
 #filter-button.active {
-  background-color:darkgoldenrod;
+  background-color: darkgoldenrod;
 }
 .inactive + #filters {
-  display:none;
+  display: none;
 }
 #filters {
-  position:absolute;
-  height:100%;
-  width:100%;
-  background-color:orange;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: orange;
   border-radius: 0 0px 10px 10px;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 #counter-list {
   width: 80%;
   flex: 1;
-  background-color: red;
+  background-color: var(--dark-red);
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -75,179 +82,194 @@ body {
   bottom: 0px;
 }
 .counter {
+  border:1px solid var(--elements);
+  display: flex;
+  align-items: center;
   height: 50px;
-  background-color: darkred;
+  background-color: var(--border-red);
   position: relative;
+  font-size: xx-large;
+  overflow: hidden;
 }
-.increase, .decrease{
+.increase,
+.decrease {
   height: 100%;
   width: 50px;
-  position:absolute;
-  top:0px;
+  position: absolute;
+  top: 0px;
 }
 .increase {
   right: 0px;
-  background-color:black;
+  background-color: black;
 }
 .decrease {
   right: 50px;
-  background-color:white;
+  background-color: white;
+}
+.remove {
+  width: 50px;
+  text-align: center;
 }
 .round {
   border-radius: 10px;
 }
 #insideman {
-  display:none;
+  display: none;
   justify-content: center;
   align-items: center;
 }
 .cross {
   width: 50%;
   height: 50%;
-  background-color:maroon;
+  background-color: maroon;
   cursor: pointer;
 }
-.backdrop{
-  opacity:0.7;
-  background-color:black;
-  width:100vw;
-  height:100vh;
-  position:fixed;
-  top:0;
-  left:0;
-  display:flex;
+.backdrop {
+  opacity: 0.7;
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
 }
-#creation-modal{
+#creation-modal {
   height: 200px;
   width: 400px;
-  background-color:silver;
-  display:flex;
+  background-color: silver;
+  display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  opacity:1;
-  position:fixed;
+  opacity: 1;
+  position: fixed;
 }
 /* Filters shenanigans*/
-input[type='checkbox'] {
+input[type="checkbox"] {
   position: absolute;
   right: 0px;
 }
-input[type='range'] {
+input[type="range"] {
   position: absolute;
   cursor: pointer;
   outline: none;
-  height:50px;
-  width:100%;
+  height: 50px;
+  width: 100%;
 }
 
-input[type='range']::-webkit-slider-runnable-track {
+input[type="range"]::-webkit-slider-runnable-track {
   background: none;
 }
 
-input[type='range']::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   position: relative;
   height: 15px;
   width: 15px;
   background: #fff;
-  border: 1px solid #003D7C;
+  border: 1px solid #003d7c;
   border-radius: 25px;
   z-index: 1;
 }
 /*end of filter shenanigans*/
-@media (min-width:960px){
-    body{
-        margin:0px;
-        height:100vh;
-        max-height:100vh;
-    }
-    #app-container{
-        flex-direction: row;
-        padding:0px;
-    }
-    #search-filters {
-        border-radius: 0px;
-        width:20%;
-        height:100%;  
-        display:flex;
-        flex-wrap:wrap;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 0px;
-    }
-    #searchbar{
-      height: 50px;
-      border-radius:10px;
-      width: 80%;
-      margin-bottom: 20px;
-    }
-    #filter-button{
-      height: 50px;
-      width: 10%;
-      order: 2;
-      position:static;
-    }
-    .inactive + #filters {
-      display:flex;
-    }
-    #filters{
-      border-radius:10px 0 0 10px;
-      height: 50px;
-      position:relative;
-      width: 80%;
-    }
-    #counter-list {
-      border-radius:0px;
-      width:70%;
-      height:100%;
-      box-sizing: border-box;
-      flex-wrap:wrap;
-    }
-    #counter-adder {
-        display:none;
-    }
-    .counter {
-        max-width:200px;
-        height:100px;
-        margin-bottom:10%;
-        position: relative;
-        display:flex;
-        justify-content: center;
-        align-items: center;
-    }
-    #insideman {
-      display:flex;
-    }
-    #creation-modal{
-      top: 40vh;
-      left: 40vw;
-    }
-    .increase, .decrease{
-      height: 50%;
-      width: 50px;
-      position:absolute;
-      right: 0px;
-      top:initial;
-    }
-    .increase {
-      top:0px;
-      background-color:black;
-    }
-    .decrease {
-      bottom:0px;
-      background-color:white;
-    }
-    .remove {
-      position:absolute;
-      top:0px;
-      left:0px;
-      background-color:white;
-      height: 20px;
-      width: 20px;
-    }
-    input[type="range"] {
-      width: 80%;
-    }
+@media (min-width: 960px) {
+  body {
+    margin: 0px;
+    height: 100vh;
+    max-height: 100vh;
+  }
+  #app-container {
+    flex-direction: row;
+    padding: 0px;
+  }
+  #search-filters {
+    border-radius: 0px;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0px;
+  }
+  #searchbar {
+    height: 50px;
+    border-radius: 10px;
+    width: 80%;
+    margin-bottom: 20px;
+  }
+  #filter-button {
+    height: 50px;
+    width: 10%;
+    order: 2;
+    position: static;
+  }
+  .inactive + #filters {
+    display: flex;
+  }
+  #filters {
+    border-radius: 10px 0 0 10px;
+    height: 50px;
+    position: relative;
+    width: 80%;
+  }
+  #counter-list {
+    border-radius: 0px;
+    width: 70%;
+    height: 100%;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+  }
+  #counter-adder {
+    display: none;
+  }
+  .counter {
+    max-width: 300px;
+    height: 100px;
+    margin-bottom: 10%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  }
+  #insideman {
+    display: flex;
+  }
+  #creation-modal {
+    top: 40vh;
+    left: 40vw;
+  }
+  .increase,
+  .decrease {
+    height: 50%;
+    width: 50px;
+    position: absolute;
+    right: 0px;
+    top: initial;
+  }
+  .increase {
+    top: 0px;
+    background-color: black;
+  }
+  .decrease {
+    bottom: 0px;
+    background-color: white;
+  }
+  .remove {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: white;
+    height: 20px;
+    width: 20px;
+  }
+  input[type="range"] {
+    width: 80%;
+  }
 }
