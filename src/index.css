@@ -3,6 +3,9 @@
   --highlights: #ff887f;
   --dark-red: #a62d23;
   --border-red: #a62d23;
+
+  --element-yellow: #c34500;
+  --element-yellow-highlight: #ff5a00;
 }
 
 body {
@@ -41,16 +44,21 @@ body {
   width: 100%;
 }
 #filter-button {
+  border-left: 1px solid black;
   position: absolute;
   height: 100%;
   width: 40px;
   right: 0px;
   top: 0px;
-  background-color: orange;
+  background-color: var(--element-yellow);
   border-radius: 0 10px 10px 0;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE4IDE2Ij48cGF0aCBmaWxsPSIjMzMzIiBkPSJNOS43NjYgMTIuNTk5di01LjNsNS4yNjUtNS41ODVIMy4wMDNMOC4zMyA3LjI0M3Y2LjI1bDEuNDM1LS44OTR6bS0zLjE1LTQuNjY1bC02LjQtNi42NDJDLS4yNDUuODE1LjA4IDAgLjczIDBoMTYuNTRjLjY0NiAwIC45NzMuODA3LjUyMiAxLjI4NkwxMS40OCA3Ljk4djUuMTQyYS43NjMuNzYzIDAgMCAxLS4zNTUuNjVMNy43MjIgMTUuODljLS40ODcuMzAzLTEuMTA1LS4wNi0xLjEwNS0uNjVWNy45MzV6Ii8+PC9zdmc+);
+  background-repeat: no-repeat;
+  background-position: center;
+  
 }
 #filter-button.active {
-  background-color: darkgoldenrod;
+  background-color: var(--element-yellow-highlight);
 }
 .inactive + #filters {
   display: none;
@@ -59,7 +67,7 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: orange;
+  background-color: var(--element-yellow);
   border-radius: 0 0px 10px 10px;
   display: flex;
   align-items: center;
@@ -82,7 +90,6 @@ body {
   bottom: 0px;
 }
 .counter {
-  border:1px solid var(--elements);
   display: flex;
   align-items: center;
   height: 50px;
@@ -208,6 +215,7 @@ input[type="range"]::-webkit-slider-thumb {
   }
   .inactive + #filters {
     display: flex;
+    opacity: 0.3;
   }
   #filters {
     border-radius: 10px 0 0 10px;
@@ -221,12 +229,14 @@ input[type="range"]::-webkit-slider-thumb {
     height: 100%;
     box-sizing: border-box;
     flex-wrap: wrap;
+    flex-direction: row;
+    overflow: scroll;
   }
   #counter-adder {
     display: none;
   }
   .counter {
-    max-width: 300px;
+    width: 300px;
     height: 100px;
     margin-bottom: 10%;
     position: relative;
@@ -266,8 +276,8 @@ input[type="range"]::-webkit-slider-thumb {
     top: 0px;
     left: 0px;
     background-color: white;
-    height: 20px;
-    width: 20px;
+    height: 35px;
+    width: 35px;
   }
   input[type="range"] {
     width: 80%;
