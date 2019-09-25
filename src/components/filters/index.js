@@ -6,7 +6,7 @@ function Filters({
   minFilterValue,
   maxFilterValue,
   topValue,
-  bottomValue,
+  disabled,
   useValueFilter,
   toggleValueFilter
 }) {
@@ -18,7 +18,7 @@ function Filters({
         class="min"
         name="range_1"
         type="range"
-        disabled={topValue === ""}
+        disabled={disabled}
         min={"0"}
         max={topValue}
         value={minFilterValue}
@@ -32,7 +32,7 @@ function Filters({
         class="max"
         name="range_1"
         type="range"
-        disabled={topValue === ""}
+        disabled={disabled}
         min={"0"}
         max={topValue}
         value={maxFilterValue}
@@ -43,7 +43,7 @@ function Filters({
         }}
       />
       <input
-        disabled={bottomValue === ""}
+        disabled={topValue === ''}
         type="checkbox"
         checked={useValueFilter}
         onChange={e => {

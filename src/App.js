@@ -36,7 +36,7 @@ function App() {
     <React.Fragment>
       <div id="search-filters" className="round">
         <Search value={textFilter} onChange={setTextFilter}/>
-        <Filters {...{setMax,setMin, minFilterValue, maxFilterValue, topValue, useValueFilter, toggleValueFilter }}/>
+        <Filters {...{setMax,setMin, minFilterValue, maxFilterValue, topValue, useValueFilter, toggleValueFilter, disabled:topValue === '' ||!useValueFilter} }/>
       </div>
       <Counterlist counterarray={counterarray.filter(textFilterFunc).filter(valueFilterFunc)} raisepopup={showPopup} onAction={updateCounterArray}/>
       <CounterAdder raisepopup={showPopup}/>
