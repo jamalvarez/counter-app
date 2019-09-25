@@ -45,6 +45,9 @@ body {
 #filter-button.active {
   background-color:darkgoldenrod;
 }
+.inactive + #filters {
+  display:none;
+}
 #filters {
   position:absolute;
   height:100%;
@@ -53,6 +56,7 @@ body {
   border-radius: 0 0px 10px 10px;
   display:flex;
   align-items: center;
+  justify-content: center;
 }
 #counter-list {
   width: 80%;
@@ -168,7 +172,7 @@ input[type='range']::-webkit-slider-thumb {
         width:20%;
         height:100%;  
         display:flex;
-        flex-direction: column;
+        flex-wrap:wrap;
         justify-content: center;
         align-items: center;
         margin-bottom: 0px;
@@ -180,10 +184,16 @@ input[type='range']::-webkit-slider-thumb {
       margin-bottom: 20px;
     }
     #filter-button{
-      display:none;
+      height: 50px;
+      width: 10%;
+      order: 2;
+      position:static;
+    }
+    .inactive + #filters {
+      display:flex;
     }
     #filters{
-      border-radius:10px;
+      border-radius:10px 0 0 10px;
       height: 50px;
       position:relative;
       width: 80%;
