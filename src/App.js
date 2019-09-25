@@ -1,22 +1,18 @@
-import React, { useReducer, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Search from "./components/search";
 import Filters from "./components/filters";
 import Counterlist from "./components/counterlist";
 import CounterAdder from "./components/counteradder";
 import Popup from "./components/popup";
-import counterReducer from "./appreducer";
 import { fetchInitialData } from "./requests/index";
 
 function App() {
-  const [counterarray, dispatch] = useReducer(counterReducer, []);
+  const [counterarray, updateCounterArray] = useState([]);
   const [popupVisible, showPopup] = useState(false);
   useEffect(() => {
-    fetchInitialData(data => dispatch({ type: "initial", data }));
+    fetchInitialData(updateCounterArray);
   }, []);
 
-  const updateCounterArray = data => {
-    dispatch({ type: "kek", data });
-  };
   const [textFilter, setTextFilter] = useState("");
   const [maxFilterValue, setMax] = useState("");
   const [minFilterValue, setMin] = useState("0");
@@ -26,7 +22,7 @@ function App() {
     .sort((a, b) => {
       return b - a;
     });
-  const topValue = sortedArray.length > 0 ? sortedArray[0] : "0";
+  const topValue = sortedArray[0] || "0";
   const textFilterFunc = counter => {
     return textFilter !== "" ? counter.title.match(textFilter) : true;
   };
@@ -65,7 +61,7 @@ function App() {
         <Popup
           showPopup={showPopup}
           onSuccess={data => {
-            dispatch({ type: "kek", data });
+            updateCounterArray(data);
             showPopup(false);
           }}
           onFailure={() => showPopup(false)}
