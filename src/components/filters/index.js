@@ -12,7 +12,7 @@ function Filters({
 }) {
   return (
       <React.Fragment>
-      <div id="filter-button"/>
+      <div id="filter-button" className={`${useValueFilter ? 'active' : 'inactive'}`} onClick={() => toggleValueFilter(!useValueFilter)}/>
     <div id="filters">
       <input
         class="min"
@@ -40,14 +40,6 @@ function Filters({
           if (Number(e.target.value) > Number(minFilterValue)) {
             setMax(e.target.value);
           }
-        }}
-      />
-      <input
-        disabled={topValue === ''}
-        type="checkbox"
-        checked={useValueFilter}
-        onChange={e => {
-          toggleValueFilter(e.target.checked);
         }}
       />
     </div>

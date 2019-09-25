@@ -42,6 +42,9 @@ body {
     background-color:orange;
     border-radius: 0 10px 10px 0;
 }
+#filter-button.active {
+  background-color:darkgoldenrod;
+}
 #filters {
   position:absolute;
   height:100%;
