@@ -18,6 +18,7 @@ body {
   width: 80%;
   background-color: blue;
   position:relative;
+  margin-bottom: 60px;
 }
 #searchbar {
     height:100%;
@@ -32,7 +33,7 @@ body {
   font-size: large;
   width: 100%;
 }
-#filters {
+#filter-button {
     position:absolute;
     height:100%;
     width:40px;
@@ -40,6 +41,13 @@ body {
     top:0px;
     background-color:orange;
     border-radius: 0 10px 10px 0;
+}
+#filters {
+  position:absolute;
+  height:100%;
+  width:100%;
+  background-color:orange;
+  border-radius: 0 0px 10px 10px;
 }
 #counter-list {
   width: 80%;
@@ -113,10 +121,6 @@ body {
   opacity:1;
   position:fixed;
 }
-#filters {
-  position: absolute;
-}
-
 /* Filters shenanigans*/
 input[type='checkbox'] {
   position: absolute;
@@ -161,6 +165,7 @@ input[type='range']::-webkit-slider-thumb {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-bottom: 0px;
     }
     #searchbar{
       height: 50px;
@@ -168,12 +173,14 @@ input[type='range']::-webkit-slider-thumb {
       width: 80%;
       margin-bottom: 20px;
     }
+    #filter-button{
+      display:none;
+    }
     #filters{
       border-radius:10px;
       height: 50px;
       position:relative;
       width: 80%;
-
     }
     #counter-list {
       border-radius:0px;

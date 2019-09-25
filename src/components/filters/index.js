@@ -11,6 +11,8 @@ function Filters({
   toggleValueFilter
 }) {
   return (
+      <React.Fragment>
+      <div id="filter-button"/>
     <div id="filters">
       <input
         class="min"
@@ -49,6 +51,7 @@ function Filters({
         }}
       />
     </div>
+    </React.Fragment>
   );
 }
 
