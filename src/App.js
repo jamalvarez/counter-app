@@ -3,13 +3,14 @@ import Search from "./components/search";
 import Filters from "./components/filters";
 import Counterlist from "./components/counterlist";
 import CounterAdder from "./components/counteradder";
-import Popup from "./components/popups/creationmodal";
+import CreationModal from "./components/popups/creationmodal";
 import Errormodal from "./components/popups/errormodal";
 import {
   fetchInitialData,
   removeCounter,
   decreaseCounter,
-  increaseCounter
+  increaseCounter,
+  saveCounter
 } from "./requests";
 
 function App() {
@@ -48,6 +49,19 @@ function App() {
     increase: data =>
       increaseCounter(data, updateCounterArray, () => displayError(true))
   };
+
+  const onSave = data =>
+  saveCounter(
+    data,
+    data => {
+      updateCounterArray(data);
+      showPopup(false);
+    },
+    () => {
+      showPopup(false);
+      displayError(true);
+    }
+  );
   return (
     <React.Fragment>
       <div id="search-filters" className="round">
@@ -74,16 +88,10 @@ function App() {
       />
       <CounterAdder raisepopup={showPopup} />
       {popupVisible && (
-        <Popup
+        <CreationModal
           showPopup={showPopup}
-          onSuccess={data => {
-            updateCounterArray(data);
-            showPopup(false);
-          }}
-          onFailure={() => {
-            showPopup(false);
-            displayError(true);
-          }}
+          onSave={onSave
+          }
         />
       )}
       {error && <Errormodal onAccept={() => displayError(false)} />}

@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
-import {saveCounter} from "../../requests"
-function Popup({onSuccess, onFailure, showPopup}) {
+function CreationModal({onSave, showPopup}) {
   const [title, setTitle] = useState("");
   const hidePopup = () => {
     showPopup(false);
   }
   useEffect(() =>{
-    document.querySelector('.backdrop').addEventListener('click', hidePopup);
+    const backdrop = document.querySelector('.backdrop');
+    if(backdrop){
+      backdrop.addEventListener('click', hidePopup);
+    }
     return () => {
-      document.querySelector('.backdrop').removeEventListener('click', hidePopup);
+      if(backdrop){
+        backdrop.removeEventListener('click', hidePopup);
+      }
     }
   })
   return (
@@ -25,10 +29,10 @@ function Popup({onSuccess, onFailure, showPopup}) {
           value={title}
           type="text"
         />
-        <button onClick={() => saveCounter(title, onSuccess, onFailure)}>Save Counter</button>
-        <button onClick={hidePopup}>Cancel</button>
+        <button id="savecounter" onClick={() => onSave(title)}>Save Counter</button>
+        <button id="cancel" onClick={hidePopup}>Cancel</button>
       </div>
       </React.Fragment>
   );
 }
-export default Popup;
+export default CreationModal;
