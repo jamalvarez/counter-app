@@ -5,7 +5,12 @@ import Counterlist from "./components/counterlist";
 import CounterAdder from "./components/counteradder";
 import Popup from "./components/popups/creationmodal";
 import Errormodal from "./components/popups/errormodal";
-import { fetchInitialData } from "./requests/index";
+import {
+  fetchInitialData,
+  removeCounter,
+  decreaseCounter,
+  increaseCounter
+} from "./requests";
 
 function App() {
   const [counterarray, updateCounterArray] = useState([]);
@@ -34,6 +39,15 @@ function App() {
     }
     return maxFilterValue >= counter.count && minFilterValue <= counter.count;
   };
+
+  const actions = {
+    remove: data =>
+      removeCounter(data, updateCounterArray, () => displayError(true)),
+    decrease: data =>
+      decreaseCounter(data, updateCounterArray, () => displayError(true)),
+    increase: data =>
+      increaseCounter(data, updateCounterArray, () => displayError(true))
+  };
   return (
     <React.Fragment>
       <div id="search-filters" className="round">
@@ -56,8 +70,7 @@ function App() {
           .filter(textFilterFunc)
           .filter(valueFilterFunc)}
         raisepopup={showPopup}
-        onAction={updateCounterArray}
-        onFailure={() => displayError(true)}
+        actions={actions}
       />
       <CounterAdder raisepopup={showPopup} />
       {popupVisible && (
@@ -67,12 +80,13 @@ function App() {
             updateCounterArray(data);
             showPopup(false);
           }}
-          onFailure={() => {showPopup(false); displayError(true)}}
+          onFailure={() => {
+            showPopup(false);
+            displayError(true);
+          }}
         />
       )}
-      {
-       error && <Errormodal onAccept={() => displayError(false)}/>
-      }
+      {error && <Errormodal onAccept={() => displayError(false)} />}
     </React.Fragment>
   );
 }
