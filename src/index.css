@@ -34,10 +34,15 @@ body {
   -moz-box-shadow: 2px 2px 5px 0.5px rgba(0, 0, 0, 0.75);
   box-shadow: 2px 2px 5px 0.5px rgba(0, 0, 0, 0.75);
 }
+#filtertitle {
+  display:none;
+  position: absolute;
+  top: -100%;
+  font-weight:bold;
+}
 #searchbar {
   height: 100%;
   width: calc(100% - 40px);
-  background-color: yellow;
   border-radius: 10px 0 0 10px;
 }
 #searchbar input {
@@ -250,8 +255,8 @@ input[type="range"]::-webkit-slider-thumb {
     cursor: pointer;
   }
   .inactive + #filters {
+    opacity:0.3;
     display: flex;
-    opacity: 0.3;
     cursor: not-allowed;
   }
   #filters {
@@ -259,6 +264,14 @@ input[type="range"]::-webkit-slider-thumb {
     height: 50px;
     position: relative;
     width: 80%;
+    display: flex;
+    justify-content: center;
+  }
+  #filtertitle {
+    display:block;
+  }
+  #minFilterValue {
+    margin-right: auto;
   }
   #counter-list {
     background-color: var(--light-red);

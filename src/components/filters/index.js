@@ -13,10 +13,12 @@ function Filters({
   return (
       <React.Fragment>
       <div id="filter-button" className={`${useValueFilter ? 'active' : 'inactive'}`} onClick={() => toggleValueFilter(!useValueFilter)}/>
+
     <div id="filters">
+    <div id="filtertitle">FILTER BY COUNT VALUE</div>
     <span id="minFilterValue">{minFilterValue}</span>
       <input
-        className="min"
+        className="min seethrough"
         name="range_1"
         type="range"
         disabled={disabled}
